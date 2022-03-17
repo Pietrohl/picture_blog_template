@@ -1,11 +1,17 @@
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,900&display=swap";
-.theme-light .button {
-  color: #af6606;
-  background-color: #ffffff;
-}
-.theme-dark .button {
-  color: #d0ae81;
-  background-color: #fafafa26;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 2 | @import "~bulma/bulma";
+ *   |         ^^^^^^^^^^^^^^
+ *   '
+ *   styles\globals.scss 2:9  root stylesheet */
 
-/*# sourceMappingURL=globals.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 2 \2502  @import \"~bulma/bulma\";\a   \2502          ^^^^^^^^^^^^^^\a   \2575 \a   styles\\globals.scss 2:9  root stylesheet";
+}

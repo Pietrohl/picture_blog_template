@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 interface ButtonProps {}
 
 const Button: FunctionComponent<ButtonProps> = () => {
-  return <div className="button">Button</div>;
+  return <button className="button is-dark">Button</button>;
 };
 
 export default Button;
