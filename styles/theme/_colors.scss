@@ -1,0 +1,30 @@
+@use "../tools" as *;
+
+// light Mode
+$lg-primary-color: $P500;
+$lg-primary-variant: $P700;
+$lg-secondary-color: $S200;
+$lg-secondary-variant: $S500;
+$lg-background: #ffff;
+$lg-surface: #ffffff;
+$lg-on-primary: #ffffff;
+$lg-on-secondary: #000000;
+$lg-on-background: #000000;
+$lg-on-surface: #000000;
+
+// Dark Mode
+$dk-primary-color: $P200;
+$dk-primary-variant: $P500;
+$dk-secondary-color: $S500;
+$dk-secondary-variant: $S200;
+$dk-background: #282a36;
+$dk-surface: #fafafa26;
+$dk-on-primary: #ffffff;
+$dk-on-secondary: #000000;
+$dk-on-background: #f8f8f2;
+$dk-on-surface: #f8f8f2;
+
+// Common
+$error: #b00020;
+$on-error: #ffffff;
+

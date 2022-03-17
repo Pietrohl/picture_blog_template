@@ -1,0 +1,7 @@
+@use "../../styles/main.scss" as *;
+.button {
+    @include themify($themes) {
+        color: themed("primary");
+        background-color: themed("surface");
+      }
+}

@@ -1,3 +1,126 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "eslint-plugin-import-helpers",
+    "prettier"
+  ],
+  "rules": {
+    "camelcase": "off",
+    "import/no-unresolved": "error",
+    "class-methods-use-this": "off",
+    "import/prefer-default-export": "off",
+    "no-shadow": "off",
+    "no-useless-constructor": "off",
+    "no-empty-function": "off",
+    "lines-between-class-members": "off",
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "module",
+          "/^@shared/",
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "warn",
+      {
+        "devDependencies": [
+          "*/.spec.js"
+        ]
+      }
+    ],
+    "prettier/prettier": "error",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-unused-expressions": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".tsx"
+        ]
+      }
+    ],
+    "import/no-duplicates": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error"
+    ],
+    "no-param-reassign": "warn",
+    "no-inline-comments": "error",
+    "no-warning-comments": "warn",
+    "no-console": "warn",
+    "react/no-unstable-nested-components": "warn",
+    "react/no-array-index-key": "warn",
+    "react/jsx-no-bind": "warn",
+    "no-return-await": "warn",
+    "@typescript-eslint/ban-types": "warn",
+    "react/require-default-props": "warn",
+    "react/default-props-match-prop-types": "warn",
+    "react/no-unused-prop-types": "warn",
+    "default-param-last": "warn",
+    "no-underscore-dangle": "warn",
+    "consistent-return": "warn",
+    "react-hooks/rules-of-hooks": "warn",
+    "no-restricted-exports": "warn",
+    "global-require": "warn",
+    "@typescript-eslint/no-var-requires": "warn",
+    "@typescript-eslint/no-empty-interface": "warn",
+    "react/jsx-no-constructed-context-values": "warn",
+    "react/destructuring-assignment": "warn",
+    "prefer-destructuring": "warn",
+    "no-sequences": "warn",
+    "@typescript-eslint/no-empty-function": "warn",
+    "no-useless-catch": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
 }

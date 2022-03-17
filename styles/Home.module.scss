@@ -1,11 +1,9 @@
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,900&display=swap";
-.theme-light .container {
-  color: #af6606;
-  background-color: #ffff;
-}
-.theme-dark .container {
-  color: #d0ae81;
-  background-color: #282a36;
+@use 'main' as *;
+.container {
+  @include themify($themes) {
+    color: themed("primary");
+    background-color: themed("background");
+  }
 }
 
 .main {
@@ -67,7 +65,8 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+    monospace;
 }
 
 .grid {
@@ -119,5 +118,3 @@
     flex-direction: column;
   }
 }
-
-/*# sourceMappingURL=Home.module.css.map */

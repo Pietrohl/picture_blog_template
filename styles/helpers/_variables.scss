@@ -1,0 +1,51 @@
+@use '../theme/colors' as *;
+
+// $themes: (
+//   light: (
+//     backgroundColor: #fff,
+//     textColor: #408bbd,
+//     buttonTextColor: #408bbd,
+//     buttonTextTransform: none,
+//     buttonTextHoverColor: #61b0e7,
+//     buttonColor: #fff,
+//     buttonBorder: 2px solid #fff,
+//   ),
+//   dark: (
+//     backgroundColor: #222,
+//     textColor: #ddd,
+//     buttonTextColor: #aaa,
+//     buttonTextTransform: uppercase,
+//     buttonTextHoverColor: #ddd,
+//     buttonColor: #333,
+//     buttonBorder: 1px solid #aaa,
+//   ),
+// );
+
+
+
+$themes: (
+    light: (
+        primary: $lg-primary-color,
+        secondary: $lg-primary-variant,
+        accent: $lg-secondary-color,
+        background: $lg-background,
+        surface: $lg-surface,
+        on-primary: $lg-on-primary,
+        on-secondary: $lg-on-primary,
+        on-accent: $lg-on-secondary,
+        on-background: $lg-background,
+        on-surface: $lg-on-surface,
+    ),
+    dark: (
+        primary: $dk-primary-color,
+        secondary: $dk-primary-variant,
+        accent: $dk-secondary-color,
+        background: $dk-background,
+        surface: $dk-surface,
+        on-primary: $dk-on-primary,
+        on-secondary: $dk-on-primary,
+        on-accent: $dk-on-secondary,
+        on-background: $dk-background,
+        on-surface: $dk-on-surface,
+    ),
+);
