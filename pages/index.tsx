@@ -1,54 +1,89 @@
-import Layout from "@/components/Layout";
-import type { NextPage } from "next";
+import Layout from '@/components/Layout'
+import styles from '@/styles/Home.module.scss'
+import Cards, { ViewTypes } from '@/components/Cards'
+import { PostModel } from '@/libs/models'
+import { useRouter } from 'next/router'
+import React, { ReactElement, useEffect, useState } from 'react'
+import CardModal from '@/components/Cards/CardModal'
+import qs from 'qs'
 
-import Button from "../components/Button";
-import styles from "../styles/Home.module.scss";
+type HomeProps = {
+  postList: PostModel[]
+}
 
-const Home: NextPage = () => {
+const Home = ({ postList = [] }: HomeProps) => {
+  const router = useRouter()
+  const { events } = router
+  const [view, setView] = useState<ViewTypes>(ViewTypes.large)
+  const [postId, setPostId] = useState<number | null>(
+    Number(router.query.postId) || null
+  )
+  const [postData, setPostData] = useState<PostModel>()
+
+  const handleQueryView = (url: any, { shallow }: any) => {
+    const queryView = Object.entries(qs.parse(url)).find(([key, value]) =>
+      key.includes('view')
+    )?.[1]
+
+    if (queryView)
+      if (queryView === ViewTypes.small || queryView === ViewTypes.large) {
+        if (queryView !== view) {
+          console.log('changing view', view)
+          console.log('queryView', queryView)
+          setView(queryView)
+          console.log('changing view', view)
+        }
+      } else {
+        router.push('/', undefined, {
+          shallow: true
+        })
+      }
+  }
+
+  useEffect(() => {
+    if (!router.query.view)
+      if (view !== ViewTypes.large) setView(ViewTypes.large)
+  }, [router.query.view])
+
+  useEffect(() => {
+    events.on('routeChangeComplete', handleQueryView)
+
+    return () => {
+      events.off('routeChangeComplete', handleQueryView)
+    }
+  }, [])
+
+  useEffect(() => {
+    setPostId(Number(router.query.postId))
+  }, [router.query.postId])
+
+  useEffect(() => {
+    if (postId)
+      setPostData(
+        postList.find(post => {
+          return post.id === postId
+        })
+      )
+  }, [postId])
+
   return (
-    <Layout styles={styles}>
-      <div>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+    <div>
+      <CardModal isOpen={!!postId} postData={postData} />
+      <Cards posts={postList} viewType={view} />
+    </div>
+  )
+}
 
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-        <Button />
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+export async function getStaticProps() {
+  const posts = JSON.parse(JSON.stringify(await PostModel.query().modify(['getLikesCount', 'getCommentsCount'])))
+  return {
+    props: { postList: posts },
+    revalidate: 80
+  }
+}
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <Layout styles={styles}>{page}</Layout>
+}
 
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </div>
-    </Layout>
-  );
-};
-
-export default Home;
+export default Home

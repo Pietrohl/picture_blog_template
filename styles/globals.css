@@ -1,17 +1,120 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 2 | @import "~bulma/bulma";
- *   |         ^^^^^^^^^^^^^^
- *   '
- *   styles\globals.scss 2:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 2 \2502  @import \"~bulma/bulma\";\a   \2502          ^^^^^^^^^^^^^^\a   \2575 \a   styles\\globals.scss 2:9  root stylesheet";
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,900&display=swap";
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,900&display=swap";
+.theme-light html {
+  color: #ffff;
+  background-color: #282a36;
 }
+.theme-dark html {
+  color: #282a36;
+  background-color: #282a36;
+}
+
+.theme-light .button, .theme-light .primarybtn {
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.theme-dark .button, .theme-dark .primarybtn {
+  color: #f8f8f2;
+  background-color: #fafafa26;
+  border-color: #fafafa26;
+}
+
+.theme-light .button.is-primary, .theme-light .primarybtn {
+  color: #ffffff;
+  background-color: #af6606;
+  border-color: #af6606;
+}
+.theme-dark .button.is-primary, .theme-dark .primarybtn {
+  color: #282a36;
+  background-color: #d0ae81;
+  border-color: #d0ae81;
+}
+
+.theme-light .button.is-outlined, .theme-light .is-outlined.primarybtn {
+  color: #000000;
+  background-color: #ffffff;
+}
+.theme-dark .button.is-outlined, .theme-dark .is-outlined.primarybtn {
+  color: #f8f8f2;
+  background-color: #fafafa26;
+}
+
+.theme-light .navbar {
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.theme-dark .navbar {
+  color: #f8f8f2;
+  background-color: #fafafa26;
+  border-color: #fafafa26;
+}
+.theme-light .navbar .navbar-item,
+.theme-light .navbar .navbar-link,
+.theme-light .navbar .navbar-dropdown {
+  color: #000000;
+}
+.theme-dark .navbar .navbar-item,
+.theme-dark .navbar .navbar-link,
+.theme-dark .navbar .navbar-dropdown {
+  color: #f8f8f2;
+}
+.navbar a.navbar-item:hover,
+.navbar a.navbar-item:focus,
+.navbar a.navbar-link:hover,
+.navbar a.navbar-link:focus,
+.navbar a.navbar-item.is-active,
+.navbar .navbar-link:focus,
+.navbar .navbar-link:focus-within,
+.navbar .navbar-link:hover,
+.navbar .navbar-link.is-active,
+.navbar .navbar-item.has-dropdown:focus .navbar-link,
+.navbar .navbar-item.has-dropdown:hover .navbar-link,
+.navbar .navbar-item.has-dropdown.is-active .navbar-link {
+  background-color: rgba(255, 255, 255, 0);
+}
+.theme-light .navbar a.navbar-item:hover,
+.theme-light .navbar a.navbar-item:focus,
+.theme-light .navbar a.navbar-link:hover,
+.theme-light .navbar a.navbar-link:focus,
+.theme-light .navbar a.navbar-item.is-active,
+.theme-light .navbar .navbar-link:focus,
+.theme-light .navbar .navbar-link:focus-within,
+.theme-light .navbar .navbar-link:hover,
+.theme-light .navbar .navbar-link.is-active,
+.theme-light .navbar .navbar-item.has-dropdown:focus .navbar-link,
+.theme-light .navbar .navbar-item.has-dropdown:hover .navbar-link,
+.theme-light .navbar .navbar-item.has-dropdown.is-active .navbar-link {
+  color: #af6606;
+}
+.theme-dark .navbar a.navbar-item:hover,
+.theme-dark .navbar a.navbar-item:focus,
+.theme-dark .navbar a.navbar-link:hover,
+.theme-dark .navbar a.navbar-link:focus,
+.theme-dark .navbar a.navbar-item.is-active,
+.theme-dark .navbar .navbar-link:focus,
+.theme-dark .navbar .navbar-link:focus-within,
+.theme-dark .navbar .navbar-link:hover,
+.theme-dark .navbar .navbar-link.is-active,
+.theme-dark .navbar .navbar-item.has-dropdown:focus .navbar-link,
+.theme-dark .navbar .navbar-item.has-dropdown:hover .navbar-link,
+.theme-dark .navbar .navbar-item.has-dropdown.is-active .navbar-link {
+  color: #d0ae81;
+}
+.navbar > * {
+  background-color: rgba(133, 13, 13, 0);
+}
+
+.theme-light .primarybtn {
+  color: #ffffff;
+  background-color: #af6606;
+  border-color: #af6606;
+}
+.theme-dark .primarybtn {
+  color: #282a36;
+  background-color: #d0ae81;
+  border-color: #d0ae81;
+}
+
+/*# sourceMappingURL=globals.css.map */

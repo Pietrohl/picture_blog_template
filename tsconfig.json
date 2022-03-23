@@ -14,7 +14,9 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "resolveJsonModule": true,    
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
@@ -28,6 +30,9 @@
       ],
       "@/styles/*": [
         "styles/*"
+      ],
+      "@/libs/*": [
+        "libs/*"
       ]
     }
   },

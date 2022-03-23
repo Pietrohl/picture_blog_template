@@ -1,0 +1,14 @@
+.cardContainer {
+    display: flex;
+    flex: content;
+    justify-content: space-around;
+    align-content: space-around;
+    gap: 20px 20px;
+
+    &.large {
+        flex-flow: column wrap;
+    }
+    &.small {
+        flex-flow: row wrap;
+    }
+}

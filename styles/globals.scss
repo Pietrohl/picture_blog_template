@@ -1,3 +1,398 @@
+@import "main";
+$family-primary: $font-family;
+$size-1: $font-size;
+$primary: $lg-primary-color;
+$dark: $dk-background;
+$border-hover: $lg-primary-variant;
+$border-light: $lg-primary-color;
+$border-light-hover: $lg-primary-color;
+$link-hover: $lg-primary-variant;
+$link-hover-border: $lg-primary-color;
+$link-focus: $lg-primary-variant;
+$link-focus-border: $lg-primary-color;
+$danger: $error;
+$border: $lg-secondary-color;
+
+// Bulma Overwrite
+html {
+    @include themify($themes) {
+        color: themed("on-background");
+        background-color: $dk-background;
+    }
+
+    // Simple
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.1);
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.2);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.4);
+    }
+    ::-webkit-scrollbar-thumb:active {
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
+
+.button {
+    @include themify($themes) {
+        color: themed("on-surface");
+        background-color: themed("surface");
+        border-color: transparent;
+    }
+
+    &,
+    &.is-outlined,
+    &.is-primary {
+        &:hover,
+        &:focus,
+        &:focus-within {
+            @include themify($themes) {
+                background-color: themed("surface");
+                border-color: themed("primary");
+                color: themed("primary");
+            }
+        }
+    }
+
+    &.is-primary {
+        @include themify($themes) {
+            color: themed("on-primary");
+            background-color: themed("primary");
+            border-color: themed("primary");
+        }
+    }
+
+    &.is-outlined {
+        @include themify($themes) {
+            color: themed("on-surface");
+            border-color: themed("primary");
+            background-color: transparent;
+        }
+    }
+    // &.is-light {
+    //     &,
+    //     &:focus,
+    //     &:hover,
+    //     &:focus-within,
+    //     &:focus-visible {
+    //         border-color: transparent;
+    //         background-color: transparent;
+    //     }
+    // }
+}
+
+.navbar {
+    @include themify($themes) {
+        color: themed("on-surface");
+        background-color: themed("surface");
+        border-color: themed("surface");
+    }
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+    .navbar-burger {
+        &,
+        &:focus,
+        &:hover,
+        &:focus-visible,
+        &:focus-within {
+            @include themify($themes) {
+                color: themed("on-surface");
+            }
+        }
+    }
+
+    .navbar-dropdown {
+        @include themify($themes) {
+            background-color: themed("background");
+        }
+    }
+    &,
+    .navbar-dropdown {
+        .navbar-item,
+        .navbar-link,
+        .navbar-dropdown,
+        .navbar-item.has-dropdown {
+            @include themify($themes) {
+                color: themed("on-surface");
+            }
+
+            &::after {
+                @include themify($themes) {
+                    border-color: themed("primary");
+                }
+            }
+            &:hover,
+            &:focus,
+            &.is-active,
+            &:focus-within {
+                background-color: rgba(255, 255, 255, 0);
+                @include themify($themes) {
+                    color: themed("primary");
+                }
+            }
+        }
+
+        .navbar-item.has-dropdown:focus .navbar-link,
+        .navbar-item.has-dropdown:hover .navbar-link,
+        .navbar-item.has-dropdown.is-active .navbar-link {
+            background-color: rgba(255, 255, 255, 0);
+            @include themify($themes) {
+                color: themed("primary");
+            }
+        }
+    }
+
+    & > * {
+        background-color: rgba(133, 13, 13, 0);
+    }
+
+    @media screen and (max-width: 1023px) {
+        .navbar-menu {
+            @include themify($themes) {
+                background-color: transparent;
+            }
+            box-shadow: 0 8px 16px rgb(10 10 10 / 10%);
+            padding: 0.5rem 0;
+        }
+    }
+}
+.box {
+    @include themify($themes) {
+        background-color: themed("surface");
+    }
+}
+.enable-line-break {
+    white-space: pre-wrap;
+}
+
+.card {
+    @include themify($themes) {
+        color: themed("on-surface");
+        background-color: themed("surface");
+        border-color: themed("surface");
+    }
+}
+
+.title,
+.subtitle,
+.content {
+    @include themify($themes) {
+        color: themed("on-surface");
+    }
+}
+
+hr {
+    background-color: lightgray;
+}
+
+// .ReactModal__Content {
+//     opacity: 0;
+//     transform: translateX(-100px);
+//     transition: all 500ms ease-in-out;
+// }
+
+// .ReactModal__Content--after-open {
+//     opacity: 1;
+//     transform: translateX(0px);
+// }
+
+// .ReactModal__Content--before-close {
+//     opacity: 0;
+//     transform: translateX(-100px);
+// }
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+    z-index: 100000 !important;
+}
+
+.modal-card {
+    @include themify($themes) {
+        background: themed("background");
+        border: themed("background");
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+        outline: transparent;
+    }
+}
+
+.modal-card-body {
+    @include themify($themes) {
+        color: themed("on-surface");
+        background: themed("background");
+        border: themed("background");
+    }
+}
+
+.modal-card-title {
+    @include themify($themes) {
+        color: themed("on-surface");
+    }
+}
+
+.modal-card-foot,
+.modal-card-head {
+    @include themify($themes) {
+        color: themed("on-surface");
+        background: themed("surface");
+        border: themed("surface");
+    }
+}
+
+p,
+strong,
+span,
+i,
+pre,
+sup,
+sub {
+    @include themify($themes) {
+        color: themed("on-surface");
+    }
+}
+
+.is-secondary {
+    @include themify($themes) {
+        color: themed("accent");
+    }
+}
+
+/* Make clicks pass-through */
+// #nprogress {
+//     pointer-events: none;
+// }
+
+// #nprogress .bar {
+//     @include themify($themes) {
+//         background: themed("secondary");
+//     }
+
+//     position: fixed;
+//     z-index: 1031;
+//     top: 0;
+//     left: 0;
+
+//     width: 100%;
+//     height: 2px;
+// }
+
+// /* Fancy blur effect */
+// #nprogress .peg {
+//     display: block;
+//     position: absolute;
+//     right: 0px;
+//     width: 100px;
+//     height: 100%;
+//     @include themify($themes) {
+//         box-shadow: 0 0 10px themed("secondary"), 0 0 5px themed("secondary");
+//     }
+//     opacity: 1;
+
+//     -webkit-transform: rotate(3deg) translate(0px, -4px);
+//     -ms-transform: rotate(3deg) translate(0px, -4px);
+//     transform: rotate(3deg) translate(0px, -4px);
+// }
+
+// /* Remove these to get rid of the spinner */
+// #nprogress .spinner {
+//     display: block;
+//     position: fixed;
+//     z-index: 1031;
+//     top: 15px;
+//     right: 15px;
+// }
+
+// #nprogress .spinner-icon {
+//     width: 18px;
+//     height: 18px;
+//     box-sizing: border-box;
+
+//     border: solid 2px transparent;
+//     border-top-color: #29d;
+//     border-left-color: #29d;
+//     border-radius: 50%;
+
+//     -webkit-animation: nprogress-spinner 400ms linear infinite;
+//     animation: nprogress-spinner 400ms linear infinite;
+// }
+
+// .nprogress-custom-parent {
+//     overflow: hidden;
+//     position: relative;
+// }
+
+// .nprogress-custom-parent #nprogress .spinner,
+// .nprogress-custom-parent #nprogress .bar {
+//     position: absolute;
+// }
+
+// @-webkit-keyframes nprogress-spinner {
+//     0% {
+//         -webkit-transform: rotate(0deg);
+//     }
+//     100% {
+//         -webkit-transform: rotate(360deg);
+//     }
+// }
+// @keyframes nprogress-spinner {
+//     0% {
+//         transform: rotate(0deg);
+//     }
+//     100% {
+//         transform: rotate(360deg);
+//     }
+// }
+
+.select select,
+.input {
+    @include themify($themes) {
+        color: themed("on-surface");
+        background-color: themed("surface");
+    }
+
+    textarea::-webkit-input-placeholder {
+        color: #0bf;
+    }
+
+    textarea:-moz-placeholder {
+        /* Firefox 18- */
+        color: #0bf;
+    }
+
+    textarea::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #0bf;
+    }
+
+    textarea:-ms-input-placeholder {
+        color: #0bf;
+    }
+
+    textarea::placeholder {
+        color: #0bf;
+    }
+}
 
 @import "~bulma/bulma";
-@import "../components/button/styles.module.scss";
+@import "animate.css";
+
+.page_container {
+    @include mobile {
+        width: fit-content;
+    }
+    @include themify($themes) {
+        color: themed("primary");
+        background-color: themed("background");
+    }
+}
